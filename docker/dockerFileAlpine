@@ -1,2 +1,4 @@
+# 该文件想说明 alpine版本打包后的image更轻巧
+# alpine版本是官方经过优化后的版本，该版本面向安全的轻量发行版
 FROM nginx:1.21.3-alpine
 RUN echo '这是一个本地构建的nginx镜像' > /usr/share/nginx/html/index.html

@@ -1,0 +1,15 @@
+#当前dockerfile是想说明mutil-stage的用法
+#下面是对ruoyi的vue前端进行两步编译打包
+
+#第一步 通过node进行build
+FROM node:12 AS stage
+WORKDIR /
+COPY . .
+RUN npm install --registry=https://registry.npm.taobao.org
+RUN npm run  build:prod
+
+#第二步 通过copy dist文件至nginx下
+FROM nginx:alpine
+LABEL maintainer="iszhangxb@163.com"
+COPY --from=stage /dist /usr/share/nginx/html
+EXPOSE 80

@@ -1,2 +1,3 @@
+# 一个基础的docker file文件
 FROM nginx:latest
 RUN echo '这是一个本地构建的nginx镜像' > /usr/share/nginx/html/index.html
